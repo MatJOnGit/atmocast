@@ -1,5 +1,5 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { SearchBlock, SearchInput, SearchBtn, BlueIcon } from './style'
+import { SearchBlock, SearchInput, SearchBtn, BlueIcon } from './styles'
 
 function SearchBar() {
     return (
