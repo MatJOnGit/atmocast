@@ -1,10 +1,13 @@
-import Head from './components/Head'
+import { useState } from 'react'
+import TitleBar from './components/TitleBar'
 import WeatherData from './components/WeatherData'
 
 function App() {
+    const [searched, setSearched] = useState(true)
+
     return (
         <div>
-            <Head />
+            <TitleBar searched={searched} />
             <WeatherData />
         </div>
     )

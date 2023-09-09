@@ -1,11 +1,14 @@
-import React from 'react'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { SearchBlock, SearchInput, SearchBtn, BlueIcon } from './style'
 
 function SearchBar() {
     return (
-        <div>
-            <input type="text" placeholder="City to weither check ?" />
-            <button>Rechercher</button>
-        </div>
+        <SearchBlock>
+            <SearchInput type="text" placeholder="Find a city" />
+            <SearchBtn>
+                <BlueIcon icon={faMagnifyingGlass} />
+            </SearchBtn>
+        </SearchBlock>
     )
 }
 
