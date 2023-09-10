@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 
 async function fetchWeather(city: string) {
-    const apiKey = process.env.OWP_key
+    const apiKey = process.env.REACT_APP_OWP_KEY
     const response = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`,
     )
