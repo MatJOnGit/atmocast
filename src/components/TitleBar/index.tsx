@@ -1,15 +1,15 @@
 import SearchBar from './../SearchBar'
 import { Header, Title } from './styles'
 
-interface TitleBarProps {
+interface SearchedCityProps {
     searched: boolean
 }
 
-function TitleBar({ searched }: TitleBarProps) {
+function TitleBar({ searched }: SearchedCityProps) {
     return (
         <Header>
             <Title>AtmoCast</Title>
-            {searched && <SearchBar />}
+            {searched && <SearchBar parentComponent="TitleBar" />}
         </Header>
     )
 }

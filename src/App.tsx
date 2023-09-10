@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import TitleBar from './components/TitleBar'
-import WeatherData from './components/WeatherData'
+import Meteo from './components/Meteo'
+import Intro from './components/Intro'
 
 function App() {
     const [searched, setSearched] = useState(true)
@@ -8,7 +9,7 @@ function App() {
     return (
         <div>
             <TitleBar searched={searched} />
-            <WeatherData />
+            {!searched ? <Intro /> : <Meteo />}
         </div>
     )
 }

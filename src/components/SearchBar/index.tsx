@@ -1,12 +1,23 @@
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { SearchBlock, SearchInput, SearchBtn, BlueIcon } from './styles'
+import { SearchBlock, SearchInput, SearchBtn, ColoredIcon } from './styles'
 
-function SearchBar() {
+interface SearchBarProps {
+    parentComponent: string
+}
+
+function SearchBar({ parentComponent }: SearchBarProps) {
+    const iconColor = parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'
+    const fontColor = parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'
+
     return (
         <SearchBlock>
-            <SearchInput type="text" placeholder="Find a city" />
+            <SearchInput
+                type="text"
+                placeholder="Find a city"
+                color={fontColor}
+            />
             <SearchBtn>
-                <BlueIcon icon={faMagnifyingGlass} />
+                <ColoredIcon icon={faMagnifyingGlass} color={iconColor} />
             </SearchBtn>
         </SearchBlock>
     )
