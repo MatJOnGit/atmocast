@@ -4,12 +4,17 @@ import Meteo from './components/Meteo'
 import Intro from './components/Intro'
 
 function App() {
-    const [searched, setSearched] = useState(true)
+    const [searched, setSearched] = useState(false)
+
+    function handleSearch(city: string) {
+        console.log('Searching for', city)
+        setSearched(true)
+    }
 
     return (
         <div>
-            <TitleBar searched={searched} />
-            {!searched ? <Intro /> : <Meteo />}
+            <TitleBar searched={searched} onSearch={handleSearch} />
+            {!searched ? <Intro onSearch={handleSearch} /> : <Meteo />}
         </div>
     )
 }
