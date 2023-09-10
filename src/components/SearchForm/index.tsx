@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
-import { SearchBlock, SearchInput, SearchBtn, ColoredIcon } from './styles'
+import { SearchForm, SearchInput, SearchBtn, ColoredIcon } from './styles'
 
 interface SearchBarProps {
     parentComponent: string
@@ -12,7 +12,8 @@ function SearchBar({ parentComponent, onSearch }: SearchBarProps) {
     const iconColor = parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'
     const fontColor = parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'
 
-    function handleSearch() {
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault()
         if (inputRef.current) {
             const inputValue = inputRef.current.value
             onSearch(inputValue)
@@ -20,17 +21,18 @@ function SearchBar({ parentComponent, onSearch }: SearchBarProps) {
     }
 
     return (
-        <SearchBlock>
+        <SearchForm onSubmit={handleSubmit}>
             <SearchInput
                 type="text"
                 placeholder="Find a city"
                 color={fontColor}
                 ref={inputRef}
+                required
             />
-            <SearchBtn onClick={handleSearch}>
+            <SearchBtn type="submit">
                 <ColoredIcon icon={faMagnifyingGlass} color={iconColor} />
             </SearchBtn>
-        </SearchBlock>
+        </SearchForm>
     )
 }
 

@@ -1,4 +1,4 @@
-import SearchBar from './../SearchBar'
+import SearchBar from '../SearchForm'
 import { Header, Title } from './styles'
 
 interface TitleBarProps {

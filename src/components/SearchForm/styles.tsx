@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const SearchBlock = styled.div`
+export const SearchForm = styled.form`
     display: flex;
     flex-direction: row;
 `

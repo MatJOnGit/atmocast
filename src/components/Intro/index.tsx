@@ -1,4 +1,4 @@
-import SearchBar from '../SearchBar'
+import SearchBar from '../SearchForm'
 import { IntroBlock } from './styles'
 
 interface IntroProps {
