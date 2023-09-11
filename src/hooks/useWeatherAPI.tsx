@@ -9,7 +9,17 @@ async function fetchWeather(city: string) {
 }
 
 export function useWeatherAPI(city: string) {
-    return useQuery(['weather', city], () => fetchWeather(city), {
+    const getWeatherQuery = useQuery({
+        queryKey: ['weather', city],
+        queryFn: () => fetchWeather(city),
         enabled: false,
     })
+
+    return {
+        data: getWeatherQuery.data,
+        isLoading: getWeatherQuery.isLoading,
+        isError: getWeatherQuery.isError,
+        error: getWeatherQuery.error,
+        refetch: getWeatherQuery.refetch,
+    }
 }
