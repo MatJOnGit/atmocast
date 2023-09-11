@@ -42,6 +42,21 @@ export const MeteoBlock = styled.div`
         margin: 10px 0;
     }
 
+    .centered {
+        display: flex;
+        align-items: center;
+    }
+
+    .small-icon {
+        width: 35px;
+        heihgt: 35px;
+    }
+
+    .big-icon {
+        width: 100px;
+        heihgt: 100px;
+    }
+
     .weather-icon {
         width: 35%;
     }
