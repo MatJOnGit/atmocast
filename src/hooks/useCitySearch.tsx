@@ -16,8 +16,6 @@ export function useCitySearch() {
                 const response = await refetch()
 
                 if (response.isSuccess) {
-                    console.log('API Response:', response.data)
-                    console.log('Filtered Data:', filteredData)
                     setSearched(true)
                 } else if (response.isError && error instanceof Error) {
                     alert(error.message)

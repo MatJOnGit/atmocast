@@ -5,7 +5,7 @@ import { useCitySearch } from './hooks/useCitySearch'
 import './index.css'
 
 function App() {
-    const { searched, setCity } = useCitySearch()
+    const { searched, setCity, city, filteredData } = useCitySearch()
 
     function handleSearch(newCity: string) {
         setCity(newCity)
@@ -14,7 +14,11 @@ function App() {
     return (
         <div>
             <TitleBar searched={searched} onSearch={handleSearch} />
-            {!searched ? <Intro onSearch={handleSearch} /> : <Meteo />}
+            {!searched ? (
+                <Intro onSearch={handleSearch} />
+            ) : (
+                city && <Meteo city={city} filteredData={filteredData} />
+            )}
         </div>
     )
 }

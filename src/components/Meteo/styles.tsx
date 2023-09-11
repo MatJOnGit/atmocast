@@ -27,6 +27,19 @@ export const MeteoBlock = styled.div`
 
     .weather-info {
         width: 65%;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .splitter {
+        display: block;
+        height: 1px;
+        width: 65%;
+        background-color: #d3d3d3;
+        margin: 10px 0;
     }
 
     .weather-icon {
