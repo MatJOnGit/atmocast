@@ -9,7 +9,6 @@ interface SearchBarProps {
 
 function SearchBar({ parentComponent, onSearch }: SearchBarProps) {
     const inputRef = useRef<HTMLInputElement>(null)
-    const iconColor = parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'
     const fontColor = parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
@@ -30,7 +29,7 @@ function SearchBar({ parentComponent, onSearch }: SearchBarProps) {
                 required
             />
             <SearchBtn type="submit">
-                <ColoredIcon icon={faMagnifyingGlass} color={iconColor} />
+                <ColoredIcon icon={faMagnifyingGlass} color={fontColor} />
             </SearchBtn>
         </SearchForm>
     )
