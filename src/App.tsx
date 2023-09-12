@@ -1,8 +1,9 @@
 import TitleBar from './components/TitleBar'
-import WeatherContainer from './components/WeatherContainer'
 import Intro from './components/Intro'
+import TodayWeather from './components/TodayWeather'
+import NextDaysWeather from './components/NextDaysWeather'
 import { useCitySearch } from './hooks/useCitySearch'
-import './index.css'
+import './App.css'
 
 function App() {
     const { searched, setCity, city, filteredData } = useCitySearch()
@@ -18,7 +19,10 @@ function App() {
                 <Intro onSearch={handleSearch} />
             ) : (
                 city && (
-                    <WeatherContainer city={city} filteredData={filteredData} />
+                    <div className="weather-block">
+                        <TodayWeather city={city} filteredData={filteredData} />
+                        <NextDaysWeather filteredData={filteredData} />
+                    </div>
                 )
             )}
         </div>
