@@ -8,11 +8,20 @@ export const Header = styled.header`
     justify-content: space-between;
     align-items: center;
     height: 60px;
-`
 
-export const Title = styled.h1`
-    font-size: 2em;
-    font-family: 'Oswald';
-    color: #18a1f2;
-    margin: 0;
+    h1 {
+        font-size: 32px;
+        font-family: 'Oswald';
+        color: #18a1f2;
+        margin: 0;
+    }
+
+    @media (min-width: 768px) {
+        padding: 0 30px;
+        height: 100px;
+
+        h1 {
+            font-size: 36px;
+        }
+    }
 `

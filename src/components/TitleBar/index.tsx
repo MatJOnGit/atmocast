@@ -1,5 +1,5 @@
 import SearchBar from '../SearchForm'
-import { Header, Title } from './styles'
+import { Header } from './styles'
 
 interface TitleBarProps {
     searched: boolean
@@ -9,7 +9,7 @@ interface TitleBarProps {
 function TitleBar({ searched, onSearch }: TitleBarProps) {
     return (
         <Header>
-            <Title>AtmoCast</Title>
+            <h1>AtmoCast</h1>
             {searched && (
                 <SearchBar parentComponent="TitleBar" onSearch={onSearch} />
             )}

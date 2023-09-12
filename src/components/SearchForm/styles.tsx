@@ -1,35 +1,54 @@
 import styled from 'styled-components'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-export const SearchForm = styled.form`
+export const SearchFormBlock = styled.form<{ parentComponent?: string }>`
     display: flex;
     flex-direction: row;
-`
+    margin-top: ${(props) =>
+        props.parentComponent === 'Intro' ? '18px' : '0'};
 
-export const SearchInput = styled.input<{ color: string }>`
-    padding-right: 22px;
-    height: 22px;
-    width: 120px;
-    font-style: italic;
-    background-color: inherit;
-    border: 0;
-    border-bottom: 1px solid ${(props) => props.color};
-    color: ${(props) => props.color};
+    .search-btn {
+        background-color: inherit;
+        border: none;
+    }
 
-    &::placeholder {
-        color: ${(props) => props.color};
+    @media (min-width: 768px) {
+        .search-icon {
+            font-size: 22px;
+        }
     }
 `
 
-export const SearchBtn = styled.button`
+export const SearchInput = styled.input<{ parentComponent?: string }>`
+    font-style: italic;
     background-color: inherit;
-    border: none;
+    border: 0;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 1px solid
+        ${(props) =>
+            props.parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'};
+    color: ${(props) =>
+        props.parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'};
+
+    &::placeholder {
+        font-size: 14px;
+        color: ${(props) =>
+            props.parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'};
+    }
+
+    @media (min-width: 768px) {
+        font-size: 18px;
+
+        &::placeholder {
+            font-size: 18px;
+        }
+    }
 `
 
-const Icon = styled(FontAwesomeIcon)`
+export const SearchIcon = styled(FontAwesomeIcon)<{ parentComponent?: string }>`
     font-size: 18px;
-`
-
-export const ColoredIcon = styled(Icon)<{ color: string }>`
-    color: ${(props) => props.color};
+    color: ${(props) =>
+        props.parentComponent === 'TitleBar' ? '#18a1f2' : '#ffffff'};
 `
