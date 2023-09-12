@@ -9,7 +9,7 @@ export const TodayWeatherBlock = styled.div`
     .weather-info,
     .weather-icon {
         background: linear-gradient(135deg, #006ab0, #1fa4f1);
-        height: calc(100vh - 20vh - 60px);
+        height: calc(100vh - 30vh - 60px);
         display: flex;
         justify-content: center;
         align-items: center;

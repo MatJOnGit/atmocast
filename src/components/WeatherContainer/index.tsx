@@ -11,7 +11,7 @@ function WeatherContainer({ city, filteredData }: WeatherProps) {
     return (
         <WeatherBlock>
             <TodayWeather city={city} filteredData={filteredData} />
-            <NextDaysWeather city={city} filteredData={filteredData} />
+            <NextDaysWeather filteredData={filteredData} />
         </WeatherBlock>
     )
 }

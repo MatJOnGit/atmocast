@@ -74,8 +74,38 @@ export function buildFirstDayData(filteredData: FilteredData) {
 }
 
 export function buildNextDaysData(filteredData: FilteredData) {
-    let result: { [key: string]: string | undefined } = {}
+    const nextDaysData = filteredData?.list?.slice(1, 5) // Getting the data for the next 4 days
 
-    const nextDaysData = filteredData?.list?.slice(1, 5)
-    console.log(nextDaysData)
+    if (!nextDaysData || nextDaysData.length === 0) {
+        return Array.from({ length: 4 }, () =>
+            Object.keys(transformationMap).reduce(
+                (acc, key) => {
+                    acc[key] = defaultText
+                    return acc
+                },
+                {} as { [key: string]: string },
+            ),
+        )
+    }
+
+    const result = nextDaysData.map((dayData) => {
+        let dayResult: { [key: string]: string | undefined } = {}
+
+        for (const [key, transform] of Object.entries(transformationMap)) {
+            if (
+                [
+                    'formatedDate',
+                    'weatherIconSource',
+                    'weatherDescription',
+                    'tempMaxMin',
+                ].includes(key)
+            ) {
+                dayResult[key] = transform(dayData)
+            }
+        }
+
+        return dayResult
+    })
+
+    return result
 }
