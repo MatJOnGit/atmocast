@@ -15,12 +15,12 @@ export const NextDaysWeatherBlock = styled.div`
         position: relative;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         list-style: none;
         font-size: 14px;
         margin: 0;
-        padding: 0 5px;
+        padding: 3vh 5px;
 
         &::after {
             content: '';
