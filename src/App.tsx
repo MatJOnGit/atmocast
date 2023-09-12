@@ -1,5 +1,5 @@
 import TitleBar from './components/TitleBar'
-import Meteo from './components/Meteo'
+import WeatherContainer from './components/WeatherContainer'
 import Intro from './components/Intro'
 import { useCitySearch } from './hooks/useCitySearch'
 import './index.css'
@@ -17,7 +17,9 @@ function App() {
             {!searched ? (
                 <Intro onSearch={handleSearch} />
             ) : (
-                city && <Meteo city={city} filteredData={filteredData} />
+                city && (
+                    <WeatherContainer city={city} filteredData={filteredData} />
+                )
             )}
         </div>
     )

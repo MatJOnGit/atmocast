@@ -51,7 +51,7 @@ const transformationMap = {
             : undefined,
 }
 
-export function buildWeatherData(filteredData: FilteredData) {
+export function buildFirstDayData(filteredData: FilteredData) {
     let result: { [key: string]: string | undefined } = {}
 
     const firstDayData = filteredData?.list?.[0]
@@ -66,10 +66,16 @@ export function buildWeatherData(filteredData: FilteredData) {
         )
     }
 
-    console.log(firstDayData)
     for (const [key, transform] of Object.entries(transformationMap)) {
         result[key] = transform(firstDayData)
     }
 
     return result
+}
+
+export function buildNextDaysData(filteredData: FilteredData) {
+    let result: { [key: string]: string | undefined } = {}
+
+    const nextDaysData = filteredData?.list?.slice(1, 5)
+    console.log(nextDaysData)
 }
