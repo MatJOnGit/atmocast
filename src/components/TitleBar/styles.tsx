@@ -43,10 +43,5 @@ export const Header = styled.header`
             max-width: 1240px;
             padding: 0;
         }
-
-        h1,
-        .search-bar-container {
-            margin: 0 15px;
-        }
     }
 `

@@ -17,35 +17,37 @@ interface UseCitySearchReturn {
 export function useCitySearch(): UseCitySearchReturn {
     const [isCityFound, setFoundCity] = useState(false)
     const [city, setCity] = useState<string | null>(null)
+    const [tempCity, setTempCity] = useState<string | null>(null)
     const {
         data,
         isLoading,
         isError,
         error: unknownError,
         refetch,
-    } = useWeatherAPI(city || '')
+    } = useWeatherAPI(tempCity || '')
     const error = unknownError instanceof Error ? unknownError : null
     const { filteredData } = useFilteredWeatherData(data)
 
     useEffect(() => {
-        if (city && !isError) {
+        if (tempCity && !isError) {
             ;(async () => {
                 const response = await refetch()
 
-                if (response.isSuccess && response.data.cod === '200') {
+                if (response.isSuccess && response.data?.cod === '200') {
                     setFoundCity(true)
+                    setCity(tempCity)
                 } else if (response.isError && error) {
                     alert(error.message)
                 }
             })()
         }
-    }, [city, refetch, error, isError, filteredData])
+    }, [tempCity, refetch, error, isError, filteredData])
 
     return {
         isCityFound,
         setFoundCity,
         city,
-        setCity,
+        setCity: setTempCity,
         isError,
         error,
         isLoading,

@@ -56,7 +56,7 @@ export const NextDaysWeatherBlock = styled.div`
     }
 
     @media (min-width: 768px) {
-        height: 40vh;
+        height: 30vh;
 
         ul {
             padding: 0 8px;

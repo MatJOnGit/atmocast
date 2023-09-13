@@ -5,6 +5,7 @@ export const TodayWeatherBlock = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    height: calc(100vh - 30vh - 60px);
 
     .weather-info,
     .weather-icon {
@@ -16,7 +17,6 @@ export const TodayWeatherBlock = styled.div`
 
     .weather-info {
         width: 65%;
-        height: calc(100vh - 30vh - 60px);
         list-style: none;
         flex-direction: column;
         margin: 0;
@@ -60,6 +60,8 @@ export const TodayWeatherBlock = styled.div`
     }
 
     @media (min-width: 768px) {
+        height: calc(100vh - 30vh - 100px);
+
         .small-icon {
             width: 50px;
             height: 50px;

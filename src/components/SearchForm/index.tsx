@@ -3,7 +3,7 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { SearchFormBlock, SearchInput, SearchIcon } from './styles'
 
 interface SearchBarProps {
-    parentComponent: string
+    parentComponent: 'Intro' | 'TitleBar'
     onSearch: (city: string) => void
 }
 
