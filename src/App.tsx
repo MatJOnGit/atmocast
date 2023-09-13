@@ -6,7 +6,7 @@ import { useCitySearch } from './hooks/useCitySearch'
 import './App.css'
 
 function App() {
-    const { searched, setCity, city, filteredData } = useCitySearch()
+    const { isCityFound, setCity, city, filteredData } = useCitySearch()
 
     function handleSearch(newCity: string) {
         setCity(newCity)
@@ -14,8 +14,8 @@ function App() {
 
     return (
         <div>
-            <TitleBar searched={searched} onSearch={handleSearch} />
-            {!searched ? (
+            <TitleBar isCityFound={isCityFound} onSearch={handleSearch} />
+            {!isCityFound ? (
                 <Intro onSearch={handleSearch} />
             ) : (
                 city && (

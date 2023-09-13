@@ -2,12 +2,29 @@ import { useState, useEffect } from 'react'
 import { useWeatherAPI } from './useWeatherAPI'
 import { useFilteredWeatherData } from './useFilteredWeatherData'
 
-export function useCitySearch() {
-    const [searched, setSearched] = useState(false)
+interface UseCitySearchReturn {
+    isCityFound: boolean
+    setFoundCity: React.Dispatch<React.SetStateAction<boolean>>
+    city: string | null
+    setCity: React.Dispatch<React.SetStateAction<string | null>>
+    isError: boolean
+    error: Error | null
+    isLoading: boolean
+    data: any
+    filteredData: any
+}
+
+export function useCitySearch(): UseCitySearchReturn {
+    const [isCityFound, setFoundCity] = useState(false)
     const [city, setCity] = useState<string | null>(null)
-    const { data, isLoading, isError, error, refetch } = useWeatherAPI(
-        city || '',
-    )
+    const {
+        data,
+        isLoading,
+        isError,
+        error: unknownError,
+        refetch,
+    } = useWeatherAPI(city || '')
+    const error = unknownError instanceof Error ? unknownError : null
     const { filteredData } = useFilteredWeatherData(data)
 
     useEffect(() => {
@@ -15,9 +32,9 @@ export function useCitySearch() {
             ;(async () => {
                 const response = await refetch()
 
-                if (response.isSuccess) {
-                    setSearched(true)
-                } else if (response.isError && error instanceof Error) {
+                if (response.isSuccess && response.data.cod === '200') {
+                    setFoundCity(true)
+                } else if (response.isError && error) {
                     alert(error.message)
                 }
             })()
@@ -25,8 +42,8 @@ export function useCitySearch() {
     }, [city, refetch, error, isError, filteredData])
 
     return {
-        searched,
-        setSearched,
+        isCityFound,
+        setFoundCity,
         city,
         setCity,
         isError,
