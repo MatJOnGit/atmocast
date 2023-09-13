@@ -20,8 +20,13 @@ function App() {
             ) : (
                 city && (
                     <div className="weather-block">
-                        <TodayWeather city={city} filteredData={filteredData} />
-                        <NextDaysWeather filteredData={filteredData} />
+                        <div className="weather-wrapper">
+                            <TodayWeather
+                                city={city}
+                                filteredData={filteredData}
+                            />
+                            <NextDaysWeather filteredData={filteredData} />
+                        </div>
                     </div>
                 )
             )}

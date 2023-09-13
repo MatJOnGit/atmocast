@@ -9,10 +9,12 @@ interface TitleBarProps {
 function TitleBar({ searched, onSearch }: TitleBarProps) {
     return (
         <Header>
-            <h1>AtmoCast</h1>
-            {searched && (
-                <SearchBar parentComponent="TitleBar" onSearch={onSearch} />
-            )}
+            <div className="header-wrapper">
+                <h1>AtmoCast</h1>
+                {searched && (
+                    <SearchBar parentComponent="TitleBar" onSearch={onSearch} />
+                )}
+            </div>
         </Header>
     )
 }

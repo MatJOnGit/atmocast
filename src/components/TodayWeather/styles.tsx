@@ -21,6 +21,7 @@ export const TodayWeatherBlock = styled.div`
         flex-direction: column;
         margin: 0;
         padding: 0;
+        color: #ffffff;
 
         & li {
             margin: 3px 0;
