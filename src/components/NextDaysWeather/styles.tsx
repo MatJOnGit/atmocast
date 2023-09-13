@@ -5,7 +5,6 @@ export const NextDaysWeatherBlock = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    width: 100%;
     height: 30vh;
     background-color: #ffffff;
     color: #006ab0;
@@ -20,7 +19,7 @@ export const NextDaysWeatherBlock = styled.div`
         list-style: none;
         font-size: 14px;
         margin: 0;
-        padding: 3vh 5px;
+        padding: 0 5px;
 
         &::after {
             content: '';
@@ -37,13 +36,39 @@ export const NextDaysWeatherBlock = styled.div`
                 display: none;
             }
         }
+    }
 
-        li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #000000;
+    li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #000000;
+
+        &:first-child {
+            margin-top: 20px;
+        }
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+    @media (min-width: 768px) {
+        height: 40vh;
+
+        ul {
+            padding: 0 8px;
+        }
+
+        li:first-child {
+            margin-top: 40px;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
         }
     }
 `

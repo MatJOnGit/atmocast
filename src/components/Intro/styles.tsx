@@ -9,7 +9,6 @@ export const IntroBlock = styled.div`
     background: linear-gradient(135deg, #006ab0, #1fa4f1);
 
     p {
-        font-size: 16px;
         text-align: justify;
         color: #ffffff;
     }
@@ -17,9 +16,5 @@ export const IntroBlock = styled.div`
     @media (min-width: 768px) {
         padding: 15px 30px;
         height: calc(100vh - 100px);
-
-        p {
-            font-size: 22px;
-        }
     }
 `

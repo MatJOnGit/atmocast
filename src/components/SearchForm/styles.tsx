@@ -39,10 +39,10 @@ export const SearchInput = styled.input<{ parentComponent?: string }>`
     }
 
     @media (min-width: 768px) {
-        font-size: 18px;
+        font-size: 22px;
 
         &::placeholder {
-            font-size: 18px;
+            font-size: 22px;
         }
     }
 `

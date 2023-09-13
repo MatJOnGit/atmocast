@@ -13,11 +13,7 @@ function NextDaysWeather({ filteredData }: NextDaysWeatherProps) {
             {nextDaysData.map((day, index) => (
                 <ul key={`day-${index}`}>
                     <li>{day.formatedDate}</li>
-                    <img
-                        src={day.weatherIconSource}
-                        alt="weather-icon"
-                        className="big-icon"
-                    />
+                    <img src={day.weatherIconSource} alt="weather-icon" />
                     <li>{day.weatherDescription}</li>
                     <li>{day.tempMaxMin}</li>
                 </ul>

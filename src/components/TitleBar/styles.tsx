@@ -21,7 +21,7 @@ export const Header = styled.header`
         height: 100px;
 
         h1 {
-            font-size: 36px;
+            font-size: 44px;
         }
     }
 `
